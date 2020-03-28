@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraMotor.cs" />
+    <Compile Include="Assets\Scripts\CarMovements.cs" />
     <Compile Include="Assets\Scripts\MobileInput.cs" />
     <Compile Include="Assets\Scripts\ObstacleSpawner.cs" />
     <Compile Include="Assets\Scripts\PlayerMotor.cs" />

@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class ScaleAndRotateEffect : MonoBehaviour
 {
+    public float minScaleX;
+    public float maxScaleX;
+    public float speed = 1f;
     bool isIncrement = true;
 
     // Start is called before the first frame update
@@ -21,9 +24,9 @@ public class ScaleAndRotateEffect : MonoBehaviour
 
         if (isIncrement)
         {
-            if (gameObject.transform.localScale.x <= 0.3f)
+            if (gameObject.transform.localScale.x <= maxScaleX)
             {
-                transform.localScale += new Vector3(0.1f, 0.1f, 0.1f) * Time.deltaTime;
+                transform.localScale += new Vector3(0.1f, 0.1f, 0.1f) * Time.deltaTime * speed;
             }
             else
             {
@@ -32,9 +35,9 @@ public class ScaleAndRotateEffect : MonoBehaviour
         }
         else
         {
-            if (gameObject.transform.localScale.x >= 0.2f)
+            if (gameObject.transform.localScale.x >= minScaleX)
             {
-                transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f) * Time.deltaTime;
+                transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f) * Time.deltaTime * speed;
             }
             else
             {
