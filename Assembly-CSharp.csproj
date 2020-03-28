@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\MobileInput.cs" />
     <Compile Include="Assets\Scripts\ObstacleSpawner.cs" />
     <Compile Include="Assets\Scripts\PlayerMotor.cs" />
+    <Compile Include="Assets\Scripts\ScaleAndRotateEffect.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/hakanakin/StayHome/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
