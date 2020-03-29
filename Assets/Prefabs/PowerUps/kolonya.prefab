@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!136 &2242482381709995048
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5163830036818114936}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.52801776
+  m_Height: 2.0926938
+  m_Direction: 1
+  m_Center: {x: -0.102731846, y: 0.8545417, z: 0}
 --- !u!114 &1933818959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30,12 +44,12 @@ PrefabInstance:
     - target: {fileID: 623537818433623803, guid: 437f6f003c3130f4ab03cf124b2555e4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.3
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 623537818433623803, guid: 437f6f003c3130f4ab03cf124b2555e4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.11
+      value: 15.11
       objectReference: {fileID: 0}
     - target: {fileID: 623537818433623803, guid: 437f6f003c3130f4ab03cf124b2555e4,
         type: 3}
@@ -95,6 +109,11 @@ PrefabInstance:
     - target: {fileID: 623537818433850075, guid: 437f6f003c3130f4ab03cf124b2555e4,
         type: 3}
       propertyPath: m_Name
+      value: kolonya
+      objectReference: {fileID: 0}
+    - target: {fileID: 623537818433850075, guid: 437f6f003c3130f4ab03cf124b2555e4,
+        type: 3}
+      propertyPath: m_TagString
       value: kolonya
       objectReference: {fileID: 0}
     m_RemovedComponents: []

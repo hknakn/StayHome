@@ -56,5 +56,9 @@ public class PlayerMotor : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.name);
+        if (other.tag == "kolonya")
+        {
+            Destroy(other.gameObject);
+        }
     }
 }
