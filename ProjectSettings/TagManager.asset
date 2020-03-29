@@ -10,6 +10,7 @@ TagManager:
   - car
   - dub
   - infected
+  - finishLine
   layers:
   - Default
   - TransparentFX
