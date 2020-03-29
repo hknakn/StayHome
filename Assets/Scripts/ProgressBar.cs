@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class ProgressBar : MonoBehaviour
 {
-
+    public GameObject player;
+    public Vector3 endLine;
     public Text Text_1;
     public Text Text_2;
     public Image bar_fill;
@@ -18,6 +19,22 @@ public class ProgressBar : MonoBehaviour
     public int level = 0;
     private float currentAmount = 0;
     private Coroutine routine;
+    float maxDistance;
+
+    private void Start()
+    {
+        maxDistance = getDistance();
+    }
+
+    private void Update()
+    {
+        bar_fill.fillAmount = 1 - (getDistance() / maxDistance);
+    }
+
+    float getDistance()
+    {
+        return Vector3.Distance(player.transform.position, endLine);
+    }
 
     void OnEnable()
     {
@@ -25,7 +42,6 @@ public class ProgressBar : MonoBehaviour
         level = 0;
         currentAmount = 0;
         bar_fill.fillAmount = currentAmount;
-        UpdateLevel(level);
     }
 
     void InitColor()
@@ -38,50 +54,5 @@ public class ProgressBar : MonoBehaviour
 
         Text_1.color = background_color;
         Text_2.color = color;
-    }
-
-    public void UpdateProgress(float amount, float duration = 0.1f)
-    {
-        if (routine != null)
-        {
-            StopCoroutine(routine);
-        }
-
-        float target = currentAmount + amount;
-        routine = StartCoroutine(FillRoutine(target, duration));
-    }
-
-    private IEnumerator FillRoutine(float target, float duration)
-    {
-        float time = 0;
-        float tempAmount = currentAmount;
-        float diff = target - tempAmount;
-        currentAmount = target;
-
-        while (time < duration)
-        {
-            time += Time.deltaTime;
-            float percent = time / duration;
-            bar_fill.fillAmount = tempAmount + diff * percent;
-            yield return null;
-        }
-
-        if (currentAmount >= 1)
-        {
-            LevelUp();
-        }
-    }
-
-    private void LevelUp()
-    {
-        UpdateLevel(level + 1);
-        UpdateProgress(-1f, 0.2f);
-    }
-
-    private void UpdateLevel(int level)
-    {
-        this.level = level;
-        Text_1.text = this.level.ToString();
-        Text_2.text = (this.level + 1).ToString();
     }
 }
