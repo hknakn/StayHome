@@ -9,6 +9,7 @@ TagManager:
   - construction
   - car
   - dub
+  - infected
   layers:
   - Default
   - TransparentFX

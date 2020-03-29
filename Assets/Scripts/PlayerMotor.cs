@@ -15,10 +15,21 @@ public class PlayerMotor : MonoBehaviour
     private float speed = 3.0f;
     private int desiredLane = 1; // 0 = Left, 1 = Middle, 2 = Right
 
+    // Sound
+    public AudioSource coinCollectSound;
+    public AudioSource deathSound;
+    public AudioSource bgSound;
+
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
+
+        bgSound.playOnAwake = true;
+        bgSound.loop = true;
+
+        coinCollectSound.playOnAwake = false;
+        deathSound.playOnAwake = false;
     }
 
     // Update is called once per frame
@@ -56,20 +67,19 @@ public class PlayerMotor : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.name);
-        if (other.tag == "kolonya")
+        if (other.tag == "kolonya" || other.tag == "mask")
         {
             Destroy(other.gameObject);
             kolonyaCount += 1;
             kolonyaCountText.text = kolonyaCount.ToString();
-        }
-        else if (other.tag == "mask")
-        {
-            Destroy(other.gameObject);
+            coinCollectSound.Play();
         }
 
-        if (other.tag == "construction" || other.tag == "car" || other.tag == "dub")
+        if (other.tag == "construction" || other.tag == "car" || other.tag == "dub" || other.tag == "infected")
         {
             Debug.Log("GameOver");
+            deathSound.Play();
+            bgSound.Stop();
         }
     }
 }
