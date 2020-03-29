@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - kolonya
+  - mask
+  - construction
+  - car
+  - dub
   layers:
   - Default
   - TransparentFX

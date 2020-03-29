@@ -2,16 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMotor : MonoBehaviour
 {
     private const float LANE_DISTANCE = 1.0f;
+    private int kolonyaCount = 0;
+    public Text kolonyaCountText;
 
     // Movement
     private CharacterController controller;
-    private float jumpForce = 4.0f;
-    private float gravity = 12.0f;
-    private float verticalVelocity;
     private float speed = 3.0f;
     private int desiredLane = 1; // 0 = Left, 1 = Middle, 2 = Right
 
@@ -59,6 +59,17 @@ public class PlayerMotor : MonoBehaviour
         if (other.tag == "kolonya")
         {
             Destroy(other.gameObject);
+            kolonyaCount += 1;
+            kolonyaCountText.text = kolonyaCount.ToString();
+        }
+        else if (other.tag == "mask")
+        {
+            Destroy(other.gameObject);
+        }
+
+        if (other.tag == "construction" || other.tag == "car" || other.tag == "dub")
+        {
+            Debug.Log("GameOver");
         }
     }
 }
