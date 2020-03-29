@@ -35,6 +35,10 @@ public class PlayerMotor : MonoBehaviour
     // Scene
     private int nextSceneToLoad;
 
+    // Progress UI
+    public Text progressText1;
+    public Text progressText2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,7 +58,8 @@ public class PlayerMotor : MonoBehaviour
         restartButton.gameObject.SetActive(true);
         nextLevelButton.gameObject.SetActive(true);
 
-        nextSceneToLoad = SceneManager.GetActiveScene().buildIndex + 1;
+        progressText1.text = (SceneManager.GetActiveScene().buildIndex + 1).ToString();
+        progressText2.text = (SceneManager.GetActiveScene().buildIndex + 2).ToString();
     }
 
     // Update is called once per frame
@@ -136,10 +141,8 @@ public class PlayerMotor : MonoBehaviour
         rb.constraints = RigidbodyConstraints.FreezePositionY;
         animator.Rebind();
         isGameOver = true;
-        gameOverText.text = "Congratulations!";
-        gameOverText.fontSize = 34;
-        gameOverUI.enabled = true;
         bgSound.Stop();
+        SceneManager.LoadScene("sahnes");
     }
 
     private void RestartButtonClick()
@@ -149,6 +152,6 @@ public class PlayerMotor : MonoBehaviour
 
     private void NextLevelButtonClick()
     {
-        SceneManager.LoadScene(nextSceneToLoad);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

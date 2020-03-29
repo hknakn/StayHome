@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\PlayerMotor.cs" />
     <Compile Include="Assets\Scripts\ProgressBar.cs" />
     <Compile Include="Assets\Scripts\ScaleAndRotateEffect.cs" />
+    <Compile Include="Assets\WashHands.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/hakanakin/StayHome/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
